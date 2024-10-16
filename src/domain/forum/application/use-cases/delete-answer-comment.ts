@@ -1,5 +1,5 @@
 import { Either, left, right } from '@/core/either'
-import { AnswersCommentsRepository } from '../repositories/answers-comments-repository'
+import { AnswerCommentsRepository } from '../repositories/answer-comments-repository'
 import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found-error'
 import { NotAllowedError } from '@/core/errors/errors/not-allowed-error'
 
@@ -14,14 +14,14 @@ type DeleteAnswerCommentUseCaseResponse = Either<
 >
 
 export class DeleteAnswerCommentUseCase {
-  constructor(private answersCommentsRepository: AnswersCommentsRepository) {}
+  constructor(private answerCommentsRepository: AnswerCommentsRepository) {}
 
   async execute({
     authorId,
     answerCommentId,
   }: DeleteAnswerCommentUseCaseRequest): Promise<DeleteAnswerCommentUseCaseResponse> {
     const answerComment =
-      await this.answersCommentsRepository.findById(answerCommentId)
+      await this.answerCommentsRepository.findById(answerCommentId)
 
     if (!answerComment) {
       return left(new ResourceNotFoundError())
@@ -31,7 +31,7 @@ export class DeleteAnswerCommentUseCase {
       return left(new NotAllowedError())
     }
 
-    await this.answersCommentsRepository.delete(answerComment)
+    await this.answerCommentsRepository.delete(answerComment)
 
     return right({})
   }

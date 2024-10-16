@@ -1,27 +1,27 @@
-import { InMemoryQuestionsCommentsRepository } from '@/test/repositories/in-memory-questions-comments-repository'
+import { InMemoryQuestionCommentsRepository } from '@/test/repositories/in-memory-question-comments-repository'
 import { FetchQuestionCommentsUseCase } from './fetch-question-comments'
 import { makeQuestionComment } from '@/test/factories/make-question-comment'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 
-let questionsCommentsRepository: InMemoryQuestionsCommentsRepository
+let questionCommentsRepository: InMemoryQuestionCommentsRepository
 let sut: FetchQuestionCommentsUseCase
 
 describe('Fetch Question Comments Unit Test', () => {
   beforeEach(() => {
-    questionsCommentsRepository = new InMemoryQuestionsCommentsRepository()
-    sut = new FetchQuestionCommentsUseCase(questionsCommentsRepository)
+    questionCommentsRepository = new InMemoryQuestionCommentsRepository()
+    sut = new FetchQuestionCommentsUseCase(questionCommentsRepository)
   })
 
   it('should be able to fetch question comments', async () => {
-    await questionsCommentsRepository.create(
+    await questionCommentsRepository.create(
       makeQuestionComment({ questionId: new UniqueEntityID('question-1') }),
     )
 
-    await questionsCommentsRepository.create(
+    await questionCommentsRepository.create(
       makeQuestionComment({ questionId: new UniqueEntityID('question-1') }),
     )
 
-    await questionsCommentsRepository.create(
+    await questionCommentsRepository.create(
       makeQuestionComment({ questionId: new UniqueEntityID('question-1') }),
     )
 
@@ -35,7 +35,7 @@ describe('Fetch Question Comments Unit Test', () => {
 
   it('should be able to fetch paginated question comments', async () => {
     for (let i = 1; i <= 22; i++) {
-      await questionsCommentsRepository.create(
+      await questionCommentsRepository.create(
         makeQuestionComment({ questionId: new UniqueEntityID('question-1') }),
       )
     }

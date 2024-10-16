@@ -1,9 +1,9 @@
 import { PaginationParams } from '@/core/repositories/pagination-params'
-import { QuestionsCommentsRepository } from '@/domain/forum/application/repositories/questions-comments-repository'
+import { QuestionCommentsRepository } from '@/domain/forum/application/repositories/question-comments-repository'
 import { QuestionComment } from '@/domain/forum/enterprise/entities/question-comment'
 
-export class InMemoryQuestionsCommentsRepository
-  implements QuestionsCommentsRepository
+export class InMemoryQuestionCommentsRepository
+  implements QuestionCommentsRepository
 {
   async findById(id: string) {
     const questionComment = this.items.find((item) => item.id.toString() === id)
