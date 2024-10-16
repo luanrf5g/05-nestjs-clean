@@ -10,4 +10,15 @@ const compat = new FlatCompat({
   recommendedConfig: js.configs.recommended,
   allConfig: js.configs.all,
 })
-export default [...compat.extends('@rocketseat/eslint-config/node')]
+
+export default [
+  ...compat.extends('@rocketseat/eslint-config/node'),
+  {
+    rules: {
+      'no-useless-constructor': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-unsafe-declaration-merging': 'off',
+      'no-new': 'off',
+    },
+  },
+]
