@@ -37,7 +37,7 @@ describe('Authenticate (E2E)', () => {
 
     expect(response.statusCode).toBe(201)
     expect(response.body).toEqual({
-      acess_token: expect.any(String),
+      access_token: expect.any(String),
     })
   })
 })

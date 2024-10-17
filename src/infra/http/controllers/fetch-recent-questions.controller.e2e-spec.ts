@@ -32,7 +32,7 @@ describe('Fetch recent questions (E2E)', () => {
       },
     })
 
-    const acessToken = jwt.sign({ sub: user.id })
+    const accessToken = jwt.sign({ sub: user.id })
 
     await prisma.question.createMany({
       data: [
@@ -53,7 +53,7 @@ describe('Fetch recent questions (E2E)', () => {
 
     const response = await request(app.getHttpServer())
       .get('/questions')
-      .set('Authorization', `Bearer ${acessToken}`)
+      .set('Authorization', `Bearer ${accessToken}`)
       .send()
 
     expect(response.statusCode).toBe(200)
