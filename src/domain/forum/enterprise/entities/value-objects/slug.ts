@@ -5,8 +5,8 @@ export class Slug {
     this.value = value
   }
 
-  static create(slug: string) {
-    return new Slug(slug)
+  static create(value: string) {
+    return new Slug(value)
   }
 
   /**
