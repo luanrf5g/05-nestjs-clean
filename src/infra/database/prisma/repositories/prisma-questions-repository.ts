@@ -24,8 +24,6 @@ export class PrismaQuestionsRepository implements QuestionsRepository {
   }
 
   async findBySlug(slug: string): Promise<Question | null> {
-    console.log(slug)
-
     const question = await this.prisma.question.findUnique({
       where: {
         slug,
