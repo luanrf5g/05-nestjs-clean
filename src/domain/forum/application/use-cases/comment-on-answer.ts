@@ -39,7 +39,7 @@ export class CommentOnAnswerUseCase {
 
     const answerComment = AnswerComment.create({
       authorId: new UniqueEntityID(authorId),
-      answerId: answer.id,
+      answerId: new UniqueEntityID(answerId),
       content,
     })
 
