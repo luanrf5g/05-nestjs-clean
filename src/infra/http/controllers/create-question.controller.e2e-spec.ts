@@ -65,5 +65,11 @@ describe('Create question (E2E)', () => {
     })
 
     expect(attachmentsOnDatabase).toHaveLength(2)
+    expect(attachmentsOnDatabase).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ id: attachment1.id.toString() }),
+        expect.objectContaining({ id: attachment2.id.toString() }),
+      ]),
+    )
   })
 })

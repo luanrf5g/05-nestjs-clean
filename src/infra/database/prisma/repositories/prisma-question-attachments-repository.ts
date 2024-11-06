@@ -38,7 +38,7 @@ export class PrismaQuestionAttachmentsRepository
     }
 
     const attachmentsIds = attachments.map((attachment) => {
-      return attachment.id.toString()
+      return attachment.attachmentId.toString()
     })
 
     await this.prisma.attachment.deleteMany({
