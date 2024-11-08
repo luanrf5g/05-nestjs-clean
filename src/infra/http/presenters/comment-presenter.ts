@@ -3,7 +3,7 @@ import {
   CommentProps,
 } from '@/domain/forum/enterprise/entities/comment'
 
-export class CommentsPresente {
+export class CommentPresenter {
   static toHTTP(comment: Comment<CommentProps>) {
     return {
       id: comment.id.toString(),

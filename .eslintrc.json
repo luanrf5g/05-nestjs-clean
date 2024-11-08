@@ -4,6 +4,7 @@
     "no-useless-constructor": "off",
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-unsafe-declaration-merging": "off",
-    "no-new": "off"
+    "no-new": "off",
+    "eslint-plugin-import/first": "off"
   }
 }

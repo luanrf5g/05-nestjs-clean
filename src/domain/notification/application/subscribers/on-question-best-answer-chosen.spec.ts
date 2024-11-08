@@ -13,8 +13,12 @@ import { makeAnswer } from '@/test/factories/make-answer'
 import { waitFor } from '@/test/utils/wait-for'
 import { MockInstance } from 'vitest'
 import { OnQuestionBestAnswerChosen } from './on-question-best-answer-chosen'
+import { InMemoryAttachmentsRepository } from '@/test/repositories/in-memory-attachments-repository'
+import { InMemoryStudentsRepository } from '@/test/repositories/in-memory-students-repository'
 
 let questionsAttachmentsRepository: InMemoryQuestionAttachmentsRepository
+let attachmentsRepository: InMemoryAttachmentsRepository
+let studentsRepository: InMemoryStudentsRepository
 let questionsRepository: InMemoryQuestionsRepository
 let answersAttachmentsRepository: InMemoryAnswerAttachmentsRepository
 let answersRepository: InMemoryAnswersRepository
@@ -30,8 +34,12 @@ let sendNotificationExecuteSpy: MockInstance<
 describe('On Question Best Answer Chosen', () => {
   beforeEach(() => {
     questionsAttachmentsRepository = new InMemoryQuestionAttachmentsRepository()
+    attachmentsRepository = new InMemoryAttachmentsRepository()
+    studentsRepository = new InMemoryStudentsRepository()
     questionsRepository = new InMemoryQuestionsRepository(
       questionsAttachmentsRepository,
+      attachmentsRepository,
+      studentsRepository,
     )
     answersAttachmentsRepository = new InMemoryAnswerAttachmentsRepository()
     answersRepository = new InMemoryAnswersRepository(

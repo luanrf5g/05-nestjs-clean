@@ -43,7 +43,7 @@ export class InMemoryQuestionCommentsRepository
 
         if (!author) {
           throw new Error(
-            `Author with ID "${comment.authorId}" does not exists.`,
+            `Author with ID "${comment.authorId}" does not exist.`,
           )
         }
 
